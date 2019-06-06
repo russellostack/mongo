@@ -19,7 +19,7 @@ $(".saveArticle").on("click", function () {
     })
 });
 
-$(".delete-save").on("click", function () {
+$(".delete").on("click", function () {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",
@@ -44,7 +44,7 @@ $(".article-notes").on("click", function () {
             $("#article-note-title").append("<h5>" + data.title + "</h5>");
             $("#article-note-title").attr("data-id", thisId);
             $("#article-note-id").append("<small>" + thisId + "</small>");
-            $(".submit-noteBtn").attr("data-id", thisId);
+            $(".submit-note").attr("data-id", thisId);
 
             if (data.note) {
                 for (var i = 0; i < data.note.length; i++) {
@@ -71,7 +71,7 @@ $(".article-notes").on("click", function () {
     $("#notesModal").modal("show");
 });
 
-$(".submit-noteBtn").on("click", function () {
+$(".submit-note").on("click", function () {
     var textSubmission = $("#message-text").val()
     if (textSubmission == "") {
         $("notesModalSubmissionMsg").modal("show");
@@ -90,7 +90,7 @@ $(".submit-noteBtn").on("click", function () {
     }
 });
 
-$(".clearDb").on("click", function () {
+$(".clear").on("click", function () {
     $.get("article/clear").then(function (data) {
         window.location = "/"
     });

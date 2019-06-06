@@ -1,0 +1,38 @@
+body {
+    background-image: url();
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+.main-content {
+    padding: 15px;
+    background: #dbdfe5;
+    margin-bottom: 15px;
+    opacity: 0.95;
+}
+.col-md-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.main-text {
+    margin-top: 10px;
+}
+
+#fqa {
+    padding: 2%;
+    font-weight: bold;
+}
+
+
+
+footer {
+    color: #fff;
+    opacity: 0.9;
+}
