@@ -1,0 +1,41 @@
+{{!-- navbar --}}
+<div id="home">
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <a class="navbar-brand" href="#">NY Times</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="btn btn-success" id="scrape">Scrape</a>
+        <a class="nav-item nav-link" href="/saved">Saved</a>
+        <a class="nav-item nav-link clearDb" href="/article/clear">Clear</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1 class="display-4">Mongo</h1>
+        </div>
+        {{#if article}}
+        {{#each article}}
+        <div class="card">
+          <div class="card-heading">
+            <h4><a href={{this.link}} target="_blank">{{this.title}}</a></h4>
+          </div>
+          <div class="card-body">
+            <p> {{this.summary}}</p>
+             <p class="card-text"><small class="text-muted">Scraped: {{this.created}} / Time of Article: {{this.articleTime}}</small></p>
+            <button type="button" class="btn btn-primary saveArticle" id={{this.saved}} data-id={{this._id}}>Save Article</button>
+          </div>
+        </div>
+        {{/each}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

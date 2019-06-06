@@ -1,0 +1,95 @@
+{{!-- navbar --}}
+
+<div id="home">
+  <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+    <a class="navbar-brand" href="#">El Nuevo Día</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/saved">Saved Articles/Artículos Guardados</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="jumbotron shade">
+          <div class="transbox">
+            <h1 class="display-4">Mongo Scraper!</h1>
+          </div>
+        </div>
+        {{#if article}}
+        {{#each article}}
+        <div class="card" data-id={{this._id}}>
+          <div class="card-heading">
+            <h4><a href={{this.link}} target="_blank">{{this.title}}</a></h4>
+          </div>
+          <div class="card-body">
+            <p> {{this.summary}}</p>
+            <p class="card-text"><small class="text-muted">Scraped: {{this.created}} / Time of Article:
+                {{this.articleTime}}</small></p>
+            <button type="button" class="btn btn-primary article-notes" data-id={{this._id}}>Article Notes</button>
+            <button type="button" class="btn btn-danger delete-from-save" id={{this.saved}} data-id={{this._id}}>Delete
+              Saved
+              Article</button>
+          </div>
+        </div>
+        {{/each}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="notesModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>notes for article</h4>
+        <h4 class="modal-title text-center"></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form id="confess-submit">
+            <div class="form-group">
+              <div id="article-note-title"></div>
+              <div id="article-note-id"></div>
+              <label for="message-text" class="col-form-label">
+              </label>
+              <textarea class="form-control" id="message-text" placeholdder="Write your note here" required></textarea>
+              <br>
+              <div id="sumbit-text"> </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success submit-noteBtn">Submit Note</button><br>
+        <div class="previous-notes"></div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal" id="notesModalSubmissionMsg" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Submission Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Cannot be blank.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
