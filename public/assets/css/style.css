@@ -1,5 +1,5 @@
 body {
-    background-image: url();
+    background-image: url("../images/nyt.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -8,13 +8,25 @@ body {
     padding: 0;
     height: 100%;
 }
+.jumbotron p {
+    font-size:25px;
+}
+.card{
+    padding:10px;
+    background-color: blue;
+}
 
-
-.main-content {
+.card {
     padding: 15px;
     background: #dbdfe5;
     margin-bottom: 15px;
     opacity: 0.95;
+}
+.nav-bg {
+    background-color: cornflowerblue;
+}
+.nav-foot {
+    background-color: cornflowerblue;
 }
 .col-md-12 {
     padding-left: 0;
@@ -24,15 +36,14 @@ body {
 .main-text {
     margin-top: 10px;
 }
-
-#fqa {
-    padding: 2%;
-    font-weight: bold;
+.navbar {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px;
 }
 
 
 
 footer {
-    color: #fff;
+    color: cornflowerblue;
     opacity: 0.9;
 }
